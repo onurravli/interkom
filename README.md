@@ -1,3 +1,6 @@
+> [!WARNING]  
+> Still in development, not ready for production use.
+
 # Interkom
 
 A lightweight TypeScript library for easy communication between microservices.

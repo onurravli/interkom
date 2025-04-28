@@ -1,12 +1,11 @@
 import type { InterkomConfig } from "./types/config";
 import type { Payload } from "./types/payload";
-import { _getInterkomConfig, _sendMessage } from "./lib/utils";
-import deepmerge from "deepmerge";
+import { _sendMessage } from "./lib/utils";
 
 class Interkom {
   private config: InterkomConfig;
   constructor(config?: InterkomConfig) {
-    this.config = deepmerge(_getInterkomConfig(), config || {});
+    this.config = config || ({} as InterkomConfig);
   }
   getConfig() {
     return this.config;

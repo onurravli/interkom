@@ -26,8 +26,5 @@
   "devDependencies": {
     "@types/node": "^22.15.3",
     "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "deepmerge": "^4.3.1"
   }
 }

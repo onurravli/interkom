@@ -4,8 +4,8 @@ import { _sendMessage } from "./lib/utils";
 
 class Interkom {
   private config: InterkomConfig;
-  constructor(config?: InterkomConfig) {
-    this.config = config || ({} as InterkomConfig);
+  constructor(config: InterkomConfig) {
+    this.config = config;
   }
   getConfig() {
     return this.config;

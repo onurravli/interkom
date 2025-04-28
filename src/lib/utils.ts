@@ -1,28 +1,6 @@
 import { InterkomConfig } from "../types/config";
 import { Payload } from "../types/payload";
 
-function _getInterkomConfig() {
-  const fs = require("fs");
-  const path = require("path");
-  function findConfigFile(dir: string): string | null {
-    const configPath = path.join(dir, "interkom.config.json");
-    if (fs.existsSync(configPath)) {
-      return configPath;
-    }
-    const parentDir = path.dirname(dir);
-    if (parentDir === dir) {
-      return null;
-    }
-    return findConfigFile(parentDir);
-  }
-  const configPath = findConfigFile(process.cwd());
-  if (!configPath) {
-    return {};
-  }
-  const configContent = fs.readFileSync(configPath, "utf-8");
-  return JSON.parse(configContent);
-}
-
 async function _sendMessage(payload: Payload, config: InterkomConfig) {
   const { service, method, endpoint, params, body, headers } = payload;
   const serviceConfig = config.services[service];
@@ -44,4 +22,4 @@ async function _sendMessage(payload: Payload, config: InterkomConfig) {
   return response.json();
 }
 
-export { _getInterkomConfig, _sendMessage };
+export { _sendMessage };
